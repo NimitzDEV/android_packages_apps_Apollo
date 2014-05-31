@@ -34,7 +34,7 @@
     <color name="list_item_background">#c1000000</color>
 
     <!-- A darkish color used for the action bar -->
-    <color name="action_bar_color">#ff0d0d0d</color>
+    <color name="action_bar_color">#ff0379a1</color>
 
     <!-- A light, Holo shade of blue -->
     <color name="holo_blue_light">#ff33b5e5</color>
