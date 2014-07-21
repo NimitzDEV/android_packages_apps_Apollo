@@ -14,6 +14,7 @@ package com.andrew.apollo.ui.activities;
 import static com.andrew.apollo.utils.MusicUtils.mService;
 
 import android.app.SearchManager;
+import android.annotation.TargetApi;
 import android.app.SearchableInfo;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -22,6 +23,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.app.FragmentActivity;
@@ -29,6 +31,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
+import android.graphics.Color;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
@@ -48,6 +52,7 @@ import com.andrew.apollo.utils.ThemeUtils;
 import com.andrew.apollo.widgets.PlayPauseButton;
 import com.andrew.apollo.widgets.RepeatButton;
 import com.andrew.apollo.widgets.ShuffleButton;
+import com.andrew.apollo.ui.activities.SystemBarTintManager;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -123,6 +128,18 @@ public abstract class BaseActivity extends FragmentActivity implements ServiceCo
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setNavigationBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.delight_systembar);
+		tintManager.setNavigationBarTintResource(R.color.delight_systembar);
+		
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
+		
 
         // Initialze the theme resources
         mResources = new ThemeUtils(this);
@@ -152,6 +169,20 @@ public abstract class BaseActivity extends FragmentActivity implements ServiceCo
         initBottomActionBar();
     }
 
+	
+	@TargetApi(19) 
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
+	}
+	
     /**
      * {@inheritDoc}
      */

@@ -14,6 +14,7 @@ package com.andrew.apollo.ui.activities;
 import static com.andrew.apollo.utils.MusicUtils.mService;
 
 import android.animation.ObjectAnimator;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
@@ -26,6 +27,7 @@ import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.media.audiofx.AudioEffect;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -41,6 +43,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
+import android.view.Window;
+import android.view.WindowManager;
+import android.graphics.Color;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -66,6 +71,7 @@ import com.andrew.apollo.widgets.PlayPauseButton;
 import com.andrew.apollo.widgets.RepeatButton;
 import com.andrew.apollo.widgets.RepeatingImageButton;
 import com.andrew.apollo.widgets.ShuffleButton;
+import com.andrew.apollo.ui.activities.SystemBarTintManager;
 
 import java.lang.ref.WeakReference;
 
@@ -164,6 +170,17 @@ public class AudioPlayerActivity extends FragmentActivity implements ServiceConn
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setNavigationBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.delight_systembar);
+		tintManager.setNavigationBarTintResource(R.color.delight_systembar);
+		
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
 
         // Initialze the theme resources
         mResources = new ThemeUtils(this);
@@ -200,6 +217,20 @@ public class AudioPlayerActivity extends FragmentActivity implements ServiceConn
         initPlaybackControls();
     }
 
+	
+	@TargetApi(19) 
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
+	}
+	
     /**
      * {@inheritDoc}
      */

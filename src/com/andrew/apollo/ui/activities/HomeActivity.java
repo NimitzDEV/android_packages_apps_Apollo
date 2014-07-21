@@ -11,12 +11,18 @@
 
 package com.andrew.apollo.ui.activities;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.Window;
+import android.view.WindowManager;
+import android.graphics.Color;
 
 import com.andrew.apollo.R;
 import com.andrew.apollo.ui.fragments.phone.MusicBrowserPhoneFragment;
+import com.andrew.apollo.ui.activities.SystemBarTintManager;
 
 /**
  * This class is used to display the {@link ViewPager} used to swipe between the
@@ -37,8 +43,34 @@ public class HomeActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.activity_base_content, new MusicBrowserPhoneFragment()).commit();
         }
+		
+		
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setNavigationBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.delight_systembar);
+		tintManager.setNavigationBarTintResource(R.color.delight_systembar);
+		
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
     }
 
+	
+	@TargetApi(19) 
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
+	}
+	
     /**
      * {@inheritDoc}
      */

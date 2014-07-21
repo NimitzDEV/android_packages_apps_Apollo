@@ -14,11 +14,13 @@ package com.andrew.apollo.ui.activities;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.SearchManager;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.MediaStore;
@@ -27,6 +29,9 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.graphics.Color;
 
 import com.andrew.apollo.Config;
 import com.andrew.apollo.R;
@@ -34,6 +39,7 @@ import com.andrew.apollo.adapters.PagerAdapter;
 import com.andrew.apollo.cache.ImageFetcher;
 import com.andrew.apollo.menu.PhotoSelectionDialog;
 import com.andrew.apollo.menu.PhotoSelectionDialog.ProfileType;
+import com.andrew.apollo.ui.activities.SystemBarTintManager;
 import com.andrew.apollo.ui.fragments.profile.AlbumSongFragment;
 import com.andrew.apollo.ui.fragments.profile.ArtistAlbumFragment;
 import com.andrew.apollo.ui.fragments.profile.ArtistSongFragment;
@@ -107,6 +113,18 @@ public class ProfileActivity extends BaseActivity implements OnPageChangeListene
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		
+		SystemBarTintManager tintManager = new SystemBarTintManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setNavigationBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(R.color.delight_systembar);
+		tintManager.setNavigationBarTintResource(R.color.delight_systembar);
+		
+		
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			setTranslucentStatus(true);
+		}
+		
         // Temporay until I can work out a nice landscape layout
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -236,6 +254,20 @@ public class ProfileActivity extends BaseActivity implements OnPageChangeListene
         mTabCarousel.setListener(this);
     }
 
+	
+	@TargetApi(19) 
+	private void setTranslucentStatus(boolean on) {
+		Window win = getWindow();
+		WindowManager.LayoutParams winParams = win.getAttributes();
+		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		if (on) {
+			winParams.flags |= bits;
+		} else {
+			winParams.flags &= ~bits;
+		}
+		win.setAttributes(winParams);
+	}
+	
     /**
      * {@inheritDoc}
      */

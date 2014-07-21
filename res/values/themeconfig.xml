@@ -19,32 +19,32 @@
     <color name="action_bar">@color/action_bar_color</color>
 
     <!-- The action bar title color -->
-    <color name="action_bar_title">@color/white</color>
+    <color name="action_bar_title">@color/delight_systembar</color>
 
     <!-- The action bar sub title color -->
-    <color name="action_bar_subtitle">@color/transparent_white</color>
+    <color name="action_bar_subtitle">@color/transparent_black</color>
 
     <!-- Adpater lines -->
-    <color name="line_one">@color/white</color>
-    <color name="line_two">@color/transparent_white</color>
-    <color name="line_three">@color/transparent_white</color>
+    <color name="line_one">@color/black</color>
+    <color name="line_two">@color/transparent_black</color>
+    <color name="line_three">@color/transparent_black</color>
 
     <!-- Now playing -->
-    <color name="audio_player_current_time">@color/white</color>
-    <color name="audio_player_total_time">@color/white</color>
-    <color name="audio_player_line_one">@color/white</color>
-    <color name="audio_player_line_two">@color/transparent_white</color>
+    <color name="audio_player_current_time">@color/black</color>
+    <color name="audio_player_total_time">@color/black</color>
+    <color name="audio_player_line_one">@color/black</color>
+    <color name="audio_player_line_two">@color/transparent_black</color>
     <color name="audio_player_pager_container">@color/action_bar_color</color>
 
     <!-- Bottom action bar -->
     <color name="bottom_action_bar">@color/action_bar_color</color>
-    <color name="bab_line_one">@color/white</color>
-    <color name="bab_line_two">@color/transparent_white</color>
+    <color name="bab_line_one">@color/black</color>
+    <color name="bab_line_two">@color/transparent_black</color>
 
     <!-- Action bar items -->
-    <color name="favorite_normal">@color/transparent_white</color>
-    <color name="search_action">@color/transparent_white</color>
-    <color name="shop_action">@color/transparent_white</color>
-    <color name="pinn_to_action">@color/transparent_white</color>
+    <color name="favorite_normal">@color/transparent_black</color>
+    <color name="search_action">@color/transparent_black</color>
+    <color name="shop_action">@color/transparent_black</color>
+    <color name="pinn_to_action">@color/transparent_black</color>
 
 </resources>
