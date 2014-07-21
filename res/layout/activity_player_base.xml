@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_alignTop="@android:id/progress" />
+            android:layout_alignTop="@android:id/progress"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/audio_player_header"
@@ -53,8 +54,9 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:textSize="@dimen/text_size_medium"
-                    android:textStyle="bold"
+                    android:textSize="18dip"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-light"
                     app:themeResource="audio_player_line_one" />
 
                 <com.andrew.apollo.widgets.theme.ThemeableTextView
@@ -63,7 +65,9 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:textSize="@dimen/text_size_medium"
+                    android:textSize="16.0dip"
+                    android:textStyle="normal"
+                    android:fontFamily="sans-serif-light"
                     app:themeResource="audio_player_line_two" />
             </LinearLayout>
 
@@ -96,7 +100,8 @@
             android:layout_above="@android:id/progress"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/audio_player_header" >
+            android:layout_below="@+id/audio_player_header" 
+            android:layout_margin="12.0dip" >
 
             <com.andrew.apollo.widgets.SquareImageView
                 android:id="@+id/audio_player_album_art"
@@ -143,14 +148,16 @@
                     android:layout_height="@dimen/shadow_height"
                     android:layout_gravity="top"
                     android:contentDescription="@null"
-                    android:src="@drawable/top_shadow" />
+                    android:src="@drawable/top_shadow" 
+                    android:visibility="gone" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/shadow_height"
                     android:layout_gravity="bottom"
                     android:contentDescription="@null"
-                    android:src="@drawable/bottom_shadow" />
+                    android:src="@drawable/bottom_shadow" 
+                    android:visibility="gone" />
             </FrameLayout>
         </RelativeLayout>
 
@@ -200,7 +207,5 @@
             <include layout="@layout/audio_player_controls" />
         </LinearLayout>
     </RelativeLayout>
-
-    <include layout="@layout/colorstrip" />
 
 </com.andrew.apollo.widgets.theme.ThemeableFrameLayout>

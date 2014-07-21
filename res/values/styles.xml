@@ -84,10 +84,11 @@
         <item name="android:singleLine">true</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textSize">@dimen/text_size_extra_micro</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="BottomActionBarLineOne" parent="@style/BottomActionBarText">
-        <item name="android:textStyle">bold</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="BottomActionBarLineTwo" parent="@style/BottomActionBarText"></style>

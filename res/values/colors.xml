@@ -31,16 +31,16 @@
     <color name="transparent_white">#ffcccccc</color>
 
     <!-- Dark transparent color -->
-    <color name="list_item_background">#c1000000</color>
+    <color name="list_item_background">#ffffff</color>
 
     <!-- A darkish color used for the action bar -->
-    <color name="action_bar_color">#ff242a31</color>
+    <color name="action_bar_color">#fffff1f2</color>
 
     <!-- A light, Holo shade of blue -->
-    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_blue_light">#fd4350</color>
 
     <!-- A light, transparent Holo shade of blue -->
-    <color name="holo_blue_light_transparent">#9933b5e5</color>
+    <color name="holo_blue_light_transparent">#99fd4350</color>
 
     <!-- A light Holo shade of green -->
     <color name="holo_green_light">#ff99cc00</color>
