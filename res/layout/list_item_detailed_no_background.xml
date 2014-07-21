@@ -98,7 +98,9 @@
 
             android:layout_height="wrap_content"
 
-            android:layout_below="@android:layout_marginTop="@dimen/list_item_line_two_margin_top"
+            android:layout_below="@+id/line_one"
+			
+			android:layout_marginTop="@dimen/list_item_line_two_margin_top"
 
             android:maxLines="2"
 
