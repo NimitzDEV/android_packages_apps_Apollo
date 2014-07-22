@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_normal_height"
         android:layout_alignParentBottom="true"
-        android:background="@color/transparent_black"
+        android:background="@color/transparent_white"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/grid_item_padding_left" >
 
@@ -36,9 +36,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:maxLines="2"
-            android:textSize="18dip"
+            android:textSize="16dip"
             android:textStyle="normal"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:fontFamily="sans-serif-light"
             app:themeResource="@null" />
 
@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/line_one"
             android:singleLine="true"
-            android:textSize="16dip"
+            android:textSize="14dip"
             android:textStyle="normal"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
             android:fontFamily="sans-serif-light"
             app:themeResource="@null" />
     </RelativeLayout>

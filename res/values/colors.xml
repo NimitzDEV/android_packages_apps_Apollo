@@ -57,6 +57,6 @@
     <!-- A dark Holo shade of orange -->
     <color name="holo_orange_dark">#ffff8800</color>
 
-    <color name="delight_systembar">#fd4350</color>
+    <color name="delight_systembar">#d9430e</color>
 
 </resources>

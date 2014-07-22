@@ -19,7 +19,7 @@
     <color name="action_bar">@color/action_bar_color</color>
 
     <!-- The action bar title color -->
-    <color name="action_bar_title">@color/delight_systembar</color>
+    <color name="action_bar_title">@color/holo_blue_light</color>
 
     <!-- The action bar sub title color -->
     <color name="action_bar_subtitle">@color/transparent_black</color>
