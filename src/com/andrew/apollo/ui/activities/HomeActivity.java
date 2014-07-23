@@ -63,10 +63,13 @@ public class HomeActivity extends BaseActivity {
 		Window win = getWindow();
 		WindowManager.LayoutParams winParams = win.getAttributes();
 		final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+		final int bits2 = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
 		if (on) {
 			winParams.flags |= bits;
+			winParams.flags |= bits2;
 		} else {
 			winParams.flags &= ~bits;
+			winParams.flags &= ~bits2;
 		}
 		win.setAttributes(winParams);
 	}

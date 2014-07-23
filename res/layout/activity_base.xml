@@ -21,6 +21,8 @@
     android:fitsSystemWindows="true" >
 
     <com.andrew.apollo.widgets.theme.ThemeableFrameLayout
+        android:fitsSystemWindows="true"
+        android:clipToPadding="false"
         android:id="@+id/activity_base_content"
         android:layout_width="match_parent"
         android:layout_height="0dip"
