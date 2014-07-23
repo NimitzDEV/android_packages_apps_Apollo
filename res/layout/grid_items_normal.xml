@@ -38,7 +38,7 @@
             android:maxLines="2"
             android:textSize="16dip"
             android:textStyle="normal"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:fontFamily="sans-serif-light"
             app:themeResource="@null" />
 
@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:textSize="14dip"
             android:textStyle="normal"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:fontFamily="sans-serif-light"
             app:themeResource="@null" />
     </RelativeLayout>

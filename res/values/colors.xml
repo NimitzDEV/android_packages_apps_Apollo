@@ -28,7 +28,7 @@
     <color name="transparent_black">#99000000</color>
 
     <!-- Transparent white -->
-    <color name="transparent_white">#ffcccccc</color>
+    <color name="transparent_white">#99ffffff</color>
 
     <!-- Dark transparent color -->
     <color name="list_item_background">#ffffff</color>
