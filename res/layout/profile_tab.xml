@@ -85,6 +85,7 @@
             android:paddingRight="@dimen/profile_label_padding"
             android:singleLine="true"
             android:textColor="@color/black"
+            android:background="#90ffffff"
             android:textSize="@dimen/text_size_large" />
     </RelativeLayout>
 
