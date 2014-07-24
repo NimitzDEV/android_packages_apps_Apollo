@@ -236,7 +236,6 @@ public class AppMsg {
     public LayoutParams getLayoutParams() {
         if (mLayoutParams == null) {
             mLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            mLayoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, Gravity.CENTER);
         }
         return mLayoutParams;
     }
