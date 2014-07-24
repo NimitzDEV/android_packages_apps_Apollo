@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.view.Gravity;
 
 import com.andrew.apollo.R;
 
@@ -236,6 +237,7 @@ public class AppMsg {
     public LayoutParams getLayoutParams() {
         if (mLayoutParams == null) {
             mLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            mLayoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, Gravity.CENTER);
         }
         return mLayoutParams;
     }
