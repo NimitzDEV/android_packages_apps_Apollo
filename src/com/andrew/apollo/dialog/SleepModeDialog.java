@@ -67,7 +67,10 @@ public class SleepModeDialog extends DialogFragment {
                 long timeLeft = (sBar.getProgress() + 1) * mMill;
                 alarmManager.set(AlarmManager.RTC_WAKEUP, timeLeft + System.currentTimeMillis(), pendingIntent);
                 MusicUtils.setAlarmSet(true);
-                Toast.makeText(context, String.format(getString(R.string.quit_warining), sBar.getProgress() + 1), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context, String.format(getString(R.string.quit_warining), sBar.getProgress() + 1), Toast.LENGTH_SHORT).show();
+				AppMsg.makeText(getActivity(),
+                		String.format(getString(R.string.quit_warining), sBar.getProgress() + 1),
+                        AppMsg.STYLE_CONFIRM).show();
                 dialog.dismiss();
             }
         });
