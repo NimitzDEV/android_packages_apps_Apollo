@@ -133,7 +133,12 @@ public class MusicPlaybackService extends Service {
      * Called to go to stop the playback
      */
     public static final String STOP_ACTION = "com.andrew.apollo.stop";
-
+	
+    /**
+     * Called to go to stop the Sleep Mode
+     */
+	 public static final String SLEEP_MODE_STOP_ACTION = "com.andrew.apollo.sleep_mode_stop";
+	 
     /**
      * Called to go to the previous track
      */
@@ -484,6 +489,19 @@ public class MusicPlaybackService extends Service {
     private FavoritesStore mFavoritesCache;
 
     /**
+     * AlarmSet
+     */
+    private static boolean alarmSet = false;
+
+    public boolean getAlarmSet() {
+        return alarmSet;
+    }
+
+    public void setAlarmSet(boolean enable) {
+        alarmSet = enable;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -587,6 +605,7 @@ public class MusicPlaybackService extends Service {
         filter.addAction(TOGGLEPAUSE_ACTION);
         filter.addAction(PAUSE_ACTION);
         filter.addAction(STOP_ACTION);
+		filter.addAction(SLEEP_MODE_STOP_ACTION);
         filter.addAction(NEXT_ACTION);
         filter.addAction(PREVIOUS_ACTION);
         filter.addAction(REPEAT_ACTION);
@@ -779,6 +798,13 @@ public class MusicPlaybackService extends Service {
         } else if (CMDPLAY.equals(command)) {
             play();
         } else if (CMDSTOP.equals(command) || STOP_ACTION.equals(action)) {
+            pause();
+            mPausedByTransientLossOfFocus = false;
+            seek(0);
+            releaseServiceUiAndStop();
+		}  else if (SLEEP_MODE_STOP_ACTION.equals(action)) {
+            //AlarmSet
+            setAlarmSet(false);
             pause();
             mPausedByTransientLossOfFocus = false;
             seek(0);
@@ -2906,6 +2932,22 @@ public class MusicPlaybackService extends Service {
         @Override
         public long getAlbumId() throws RemoteException {
             return mService.get().getAlbumId();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+		public boolean getAlarmSet() throws RemoteException  {
+            return mService.get().getAlarmSet();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void setAlarmSet(boolean enable) throws RemoteException  {
+            mService.get().setAlarmSet(enable);
         }
 
         /**
