@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.andrew.apollo.MusicPlaybackService;
 import com.andrew.apollo.R;
 import com.andrew.apollo.utils.MusicUtils;
+import com.devspark.appmsg.AppMsg;
 
 public class SleepModeDialog extends DialogFragment {
 
